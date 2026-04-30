@@ -5,14 +5,16 @@ import { Segmented } from '@/components/ui/primitives'
 import type { Document } from '@/hooks/useDocuments'
 import ChatTab from './ChatTab'
 import GenerateTab from './GenerateTab'
-import type { Mode } from '@/lib/modes'
+import SummaryTab from './SummaryTab'
 
 interface AIPanelProps {
   doc: Document | null
 }
 
+type Tab = 'summary' | 'chat' | 'generate'
+
 export function AIPanel({ doc }: AIPanelProps) {
-  const [tab, setTab] = useState<'chat' | 'generate'>('chat')
+  const [tab, setTab] = useState<Tab>('chat')
 
   if (!doc) {
     return (
@@ -33,18 +35,22 @@ export function AIPanel({ doc }: AIPanelProps) {
         </div>
         <Segmented
           value={tab}
-          onChange={(v) => setTab(v as 'chat' | 'generate')}
+          onChange={(v) => setTab(v as Tab)}
           options={[
+            { value: 'summary', label: 'Summary' },
             { value: 'chat', label: 'Chat' },
             { value: 'generate', label: 'Generate' },
           ]}
         />
       </div>
 
-      {tab === 'chat' ? (
-        <ChatTab doc={doc} />
+      {/* key={doc.id} forces remount on document switch, clearing chat/generate state */}
+      {tab === 'summary' ? (
+        <SummaryTab key={doc.id} doc={doc} setTab={(t) => setTab(t as Tab)} />
+      ) : tab === 'chat' ? (
+        <ChatTab key={doc.id} doc={doc} />
       ) : (
-        <GenerateTab doc={doc} mode={((doc.mode as Mode) ?? 'business') as any} />
+        <GenerateTab key={doc.id} doc={doc} />
       )}
     </div>
   )

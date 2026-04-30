@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { DocListPanel } from './DocListPanel'
 import { AIPanel } from './AIPanel'
 import dynamic from 'next/dynamic'
@@ -19,6 +19,11 @@ interface WorkspaceProps {
 export function Workspace({ initialDocId }: WorkspaceProps) {
   const { documents } = useDocuments()
   const [activeId, setActiveId] = useState<string | null>(initialDocId)
+
+  // Sync when parent changes the initialDocId (e.g. sidebar click while already in workspace)
+  useEffect(() => {
+    if (initialDocId !== null) setActiveId(initialDocId)
+  }, [initialDocId])
 
   const activeDoc = documents.find(d => d.id === activeId) || null
 

@@ -39,7 +39,7 @@ export function useDocuments() {
         })
         return optimistic
       },
-      { optimisticData: optimistic }
+      { optimisticData: optimistic, rollbackOnError: true }
     )
   }
 
@@ -54,7 +54,7 @@ export function useDocuments() {
         })
         return optimistic
       },
-      { optimisticData: optimistic }
+      { optimisticData: optimistic, rollbackOnError: true }
     )
   }
 
