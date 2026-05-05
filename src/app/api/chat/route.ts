@@ -5,6 +5,7 @@ import { getPersona, type Mode } from '@/lib/modes'
 import { retrieveRelevant } from '@/lib/rag'
 import { createServerClient } from '@/lib/supabase-server'
 import { getDocument } from '@/lib/local-store'
+import { getLargeDocText } from '@/lib/session-cache'
 
 export const runtime = 'nodejs'
 export const maxDuration = 60
@@ -35,7 +36,15 @@ export async function POST(req: Request) {
       .select('name, full_text, is_large, mode')
       .eq('id', documentId)
       .single()
-    doc = data
+    if (!data) {
+      // FALLBACK: check local-store
+      const local = getDocument(documentId)
+      if (local) {
+        doc = { name: local.name, full_text: local.full_text, is_large: local.is_large, mode: local.mode }
+      }
+    } else {
+      doc = data
+    }
   } else {
     const local = getDocument(documentId)
     if (local) {
@@ -57,7 +66,8 @@ export async function POST(req: Request) {
     const lastText = typeof lastMsg?.content === 'string'
       ? lastMsg.content
       : lastMsg?.parts?.find((p: { type: string }) => p.type === 'text')?.text ?? ''
-    context = await retrieveRelevant(lastText, documentId)
+    const cached = getLargeDocText(documentId)
+    context = cached ? cached.slice(0, MAX_CONTEXT_CHARS) : await retrieveRelevant(lastText, documentId)
   } else {
     context = (doc.full_text ?? '').slice(0, MAX_CONTEXT_CHARS)
   }

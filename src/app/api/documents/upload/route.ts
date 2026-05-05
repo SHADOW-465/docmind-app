@@ -3,6 +3,7 @@ import { createServerClient } from '@/lib/supabase-server'
 import { extractFromBuffer } from '@/lib/extractor'
 import { summarizeDocument, suggestActions } from '@/lib/groq'
 import { insertDocument } from '@/lib/local-store'
+import { setLargeDocText } from '@/lib/session-cache'
 import type { Mode } from '@/lib/modes'
 import fs from 'fs'
 import path from 'path'
@@ -43,12 +44,9 @@ export async function POST(req: Request) {
   let suggestedActions: Array<{ id: string; label: string; description: string }> = []
 
   if (groqKeyValid && extraction.text.length > 50) {
-    const [summary, actions] = await Promise.allSettled([
-      summarizeDocument(extraction.text, mode),
-      suggestActions(extraction.text, file.name, mode),
-    ])
-    summaryJson = summary.status === 'fulfilled' ? summary.value : null
-    suggestedActions = actions.status === 'fulfilled' ? actions.value : []
+    // Sequential to stay within Groq free-tier 12k TPM limit
+    summaryJson = await summarizeDocument(extraction.text, mode)
+    suggestedActions = await suggestActions(extraction.text, file.name, mode)
   }
 
   const docData = {
@@ -72,6 +70,9 @@ export async function POST(req: Request) {
     fs.writeFileSync(path.join(uploadsDir, filename), buffer)
     docData.storage_path = `/uploads/${filename}`
     const doc = insertDocument(docData)
+    if (extraction.isLarge) {
+      setLargeDocText(doc.id, extraction.text)
+    }
     return NextResponse.json(doc)
   }
 
@@ -96,5 +97,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: dbError.message }, { status: 500 })
   }
 
+  if (extraction.isLarge) {
+    setLargeDocText(doc.id, extraction.text)
+  }
   return NextResponse.json(doc)
 }

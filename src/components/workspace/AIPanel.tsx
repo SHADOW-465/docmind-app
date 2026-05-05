@@ -9,11 +9,13 @@ import SummaryTab from './SummaryTab'
 
 interface AIPanelProps {
   doc: Document | null
+  onRefetch?: () => void
+  onPageRef?: (page: number, el: HTMLElement) => void
 }
 
 type Tab = 'summary' | 'chat' | 'generate'
 
-export function AIPanel({ doc }: AIPanelProps) {
+export function AIPanel({ doc, onRefetch, onPageRef }: AIPanelProps) {
   const [tab, setTab] = useState<Tab>('chat')
 
   if (!doc) {
@@ -46,7 +48,7 @@ export function AIPanel({ doc }: AIPanelProps) {
 
       {/* key={doc.id} forces remount on document switch, clearing chat/generate state */}
       {tab === 'summary' ? (
-        <SummaryTab key={doc.id} doc={doc} setTab={(t) => setTab(t as Tab)} />
+        <SummaryTab key={doc.id} doc={doc} setTab={(t) => setTab(t as Tab)} onRefetch={onRefetch} onPageRef={onPageRef} />
       ) : tab === 'chat' ? (
         <ChatTab key={doc.id} doc={doc} />
       ) : (

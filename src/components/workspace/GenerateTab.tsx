@@ -42,11 +42,10 @@ export default function GenerateTab({ doc }: { doc: Document }) {
   const [tone, setTone] = useState("neutral");
   const [length, setLength] = useState("medium");
 
-  const { completion, complete, status, setCompletion, error } = useCompletion({
+  const { completion, complete, isLoading, setCompletion, error } = useCompletion({
     api: '/api/generate',
     onError: (err) => console.error('Generate error:', err),
   });
-  const isLoading = status === 'streaming' || status === 'submitted';
 
   // Reset when doc changes (AIPanel keys this component, but guard here too)
   useEffect(() => { setSelected(null); setCompletion(''); }, [doc.id, setCompletion]);

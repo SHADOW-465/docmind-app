@@ -3,6 +3,7 @@ import { groq, MODEL, MAX_CONTEXT_CHARS } from '@/lib/groq'
 import { getPersona, type Mode } from '@/lib/modes'
 import { createServerClient } from '@/lib/supabase-server'
 import { getDocument } from '@/lib/local-store'
+import { getLargeDocText } from '@/lib/session-cache'
 
 function isSupabaseConfigured() {
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
@@ -40,7 +41,13 @@ export async function POST(req: Request) {
       .select('name, full_text, mode')
       .eq('id', documentId)
       .single()
-    doc = data
+    if (!data) {
+      // FALLBACK: check local-store
+      const local = getDocument(documentId)
+      if (local) doc = { name: local.name, full_text: local.full_text, mode: local.mode }
+    } else {
+      doc = data
+    }
   } else {
     const local = getDocument(documentId)
     if (local) doc = { name: local.name, full_text: local.full_text, mode: local.mode }
@@ -54,7 +61,8 @@ export async function POST(req: Request) {
   }
 
   const mode = (doc.mode as Mode) ?? 'business'
-  const context = (doc.full_text ?? '').slice(0, MAX_CONTEXT_CHARS)
+  const fullText = doc.full_text ?? getLargeDocText(documentId) ?? ''
+  const context = fullText.slice(0, MAX_CONTEXT_CHARS)
 
   const lengthGuide = { short: '200-300 words', medium: '400-600 words', long: '800-1200 words' }[length]
   const toneGuide = { formal: 'formal and professional', neutral: 'clear and neutral', casual: 'conversational and accessible' }[tone]

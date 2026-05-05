@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { DocListPanel } from './DocListPanel'
 import { AIPanel } from './AIPanel'
+import { BezierBeam } from './BezierBeam'
 import dynamic from 'next/dynamic'
 import { useDocuments } from '@/hooks/useDocuments'
 import { FileIcon } from '@/components/ui/icons'
@@ -17,8 +18,11 @@ interface WorkspaceProps {
 }
 
 export function Workspace({ initialDocId }: WorkspaceProps) {
-  const { documents } = useDocuments()
+  const { documents, refetch } = useDocuments()
   const [activeId, setActiveId] = useState<string | null>(initialDocId)
+  const [targetPage, setTargetPage] = useState<number | null>(null)
+  const [beamFrom, setBeamFrom] = useState<{ x: number; y: number } | null>(null)
+  const [beamTo, setBeamTo] = useState<{ x: number; y: number } | null>(null)
 
   // Sync when parent changes the initialDocId (e.g. sidebar click while already in workspace)
   useEffect(() => {
@@ -29,18 +33,39 @@ export function Workspace({ initialDocId }: WorkspaceProps) {
 
   return (
     <div className="flex-1 flex h-full overflow-hidden">
-      <DocListPanel activeDocId={activeId} onSelect={setActiveId} />
+      <DocListPanel
+          activeDocId={activeId}
+          onSelect={setActiveId}
+          onDelete={(id) => { if (id === activeId) setActiveId(null) }}
+        />
       
       {/* Viewer Panel */}
       <div className="flex-[2] flex flex-col bg-[var(--bg-sunken)] min-w-0">
         {activeDoc ? (
           activeDoc.storage_path && activeDoc.file_type === 'pdf' ? (
-            <div className="flex-1 overflow-hidden relative">
-              {/* @ts-ignore */}
-              <PdfViewer
-                url={activeDoc.storage_path}
-                className="w-full h-full"
-              />
+            <div className="flex-1 flex flex-col overflow-y-auto">
+              {activeDoc.is_large && (
+                <div className="px-3 py-1.5 bg-amber-50 border-b border-amber-200 text-[11px] text-amber-700 flex items-center gap-1.5 shrink-0">
+                  <span>⚠</span>
+                  <span>Large document — AI context covers the first 20 pages only and is available this session only.</span>
+                </div>
+              )}
+              <div className="flex-1 overflow-y-auto relative flex flex-col">
+                {/* @ts-ignore */}
+                <PdfViewer
+                  url={activeDoc.storage_path.startsWith('/') ? activeDoc.storage_path : `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/documents/${activeDoc.storage_path}`}
+                  targetPage={targetPage ?? undefined}
+                  onPageReady={(_page, el) => {
+                    const r = el.getBoundingClientRect()
+                    setBeamTo({ x: r.left + 24, y: r.top + 24 })
+                    setTimeout(() => {
+                      setBeamFrom(null)
+                      setBeamTo(null)
+                      setTargetPage(null)
+                    }, 1400)
+                  }}
+                />
+              </div>
             </div>
           ) : (
             <div className="flex-1 overflow-y-auto p-6">
@@ -65,7 +90,23 @@ export function Workspace({ initialDocId }: WorkspaceProps) {
       </div>
 
       {/* AI Panel */}
-      <AIPanel doc={activeDoc} />
+      <AIPanel
+        doc={activeDoc}
+        onRefetch={refetch}
+        onPageRef={(page, sourceEl) => {
+          const r = sourceEl.getBoundingClientRect()
+          setBeamFrom({ x: r.left, y: r.top + r.height / 2 })
+          setTargetPage(page)
+        }}
+      />
+
+      {beamFrom && beamTo && (
+        <BezierBeam
+          from={beamFrom}
+          to={beamTo}
+          onDone={() => { setBeamFrom(null); setBeamTo(null) }}
+        />
+      )}
     </div>
   )
 }

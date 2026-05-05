@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { I } from '@/components/ui/icons';
 import { Btn, Tooltip } from '@/components/ui/primitives';
 import { useChat } from '@ai-sdk/react';
+import type { Document } from '@/hooks/useDocuments';
 
 const formatMsg = (text: string) => {
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
@@ -12,7 +13,7 @@ const formatMsg = (text: string) => {
   );
 };
 
-const ChatMessage = ({ msg, doc }: any) => {
+const ChatMessage = ({ msg, doc }: { msg: any; doc: Document }) => {
   if (msg.role === "user") {
     return (
       <div className="flex justify-end mb-3.5 animate-fadeIn">
@@ -31,7 +32,7 @@ const ChatMessage = ({ msg, doc }: any) => {
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-1.5 mb-1">
           <span className="text-[11px] font-semibold">DocMind</span>
-          <span className="text-[10px] text-[var(--text-muted)]">· grounded in {doc?.short || doc?.name}</span>
+          <span className="text-[10px] text-[var(--text-muted)]">· grounded in {doc.name}</span>
         </div>
         <div className="text-[12.5px] leading-relaxed text-[var(--text)] whitespace-pre-wrap font-serif">
           {content.split("\n").map((line: string, i: number) => <div key={i}>{formatMsg(line)}{i < content.split("\n").length - 1 && <br/>}</div>)}
@@ -49,14 +50,13 @@ const ChatMessage = ({ msg, doc }: any) => {
   );
 };
 
-export default function ChatTab({ doc }: { doc: any }) {
+export default function ChatTab({ doc }: { doc: Document }) {
   const [input, setInput] = useState('');
-  const { messages, append: sendMessage, status, setMessages, error } = useChat({
-    // @ts-ignore
+  const { messages, sendMessage, status, setMessages, error } = useChat({
     api: '/api/chat',
-    body: { documentId: doc?.id },
+    body: { documentId: doc.id },
     onError: (err) => console.error('Chat error:', err),
-  }) as any;
+  });
   const scrollRef = useRef<HTMLDivElement>(null);
   const isLoading = status === 'streaming' || status === 'submitted';
 
@@ -68,11 +68,11 @@ export default function ChatTab({ doc }: { doc: any }) {
     const text = input.trim();
     if (!text || isLoading) return;
     setInput('');
-    sendMessage({ role: 'user', content: text } as any, { body: { documentId: doc?.id } });
+    sendMessage({ text });
   };
 
   const sendSuggestion = (text: string) => {
-    sendMessage({ role: 'user', content: text } as any, { body: { documentId: doc?.id } });
+    sendMessage({ text });
   };
 
   const suggestions = [
@@ -88,8 +88,8 @@ export default function ChatTab({ doc }: { doc: any }) {
       <div className="p-2.5 px-4 flex items-center gap-2.5 border-b border-[var(--border)] bg-[var(--bg-sunken)]">
         <div className="w-1.5 h-1.5 rounded-full bg-[#5a8e6e] shadow-[0_0_0_3px_rgba(90,142,110,.18)]"/>
         <div className="flex-1 min-w-0">
-          <div className="text-[11px] font-semibold leading-tight">Chatting with {doc?.short || doc?.name}</div>
-          <div className="text-[10px] text-[var(--text-muted)]">{doc?.pages || '—'} pages · responses cite page numbers</div>
+          <div className="text-[11px] font-semibold leading-tight">Chatting with {doc.name}</div>
+          <div className="text-[10px] text-[var(--text-muted)]">{doc.page_count} pages · responses cite page numbers</div>
         </div>
         <Tooltip label="New chat">
           <button
@@ -161,7 +161,7 @@ export default function ChatTab({ doc }: { doc: any }) {
             value={input}
             onChange={e => setInput(e.target.value)}
             onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); submit(); } }}
-            placeholder={`Ask about ${doc?.short || doc?.name}…`}
+            placeholder={`Ask about ${doc.name}…`}
             rows={2}
             className="w-full resize-none border-0 outline-none bg-transparent font-sans text-[12.5px] leading-relaxed text-[var(--text)] p-1 px-1.5"
           />

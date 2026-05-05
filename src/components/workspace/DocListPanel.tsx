@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { createClient } from '@/lib/supabase'
 import { useDocuments } from '@/hooks/useDocuments'
-import { FileIcon, StarIcon, PlusIcon } from '@/components/ui/icons'
+import { FileIcon, StarIcon, TrashIcon } from '@/components/ui/icons'
 import { Chip } from '@/components/ui/primitives'
 import type { Document } from '@/hooks/useDocuments'
 import { MODES } from '@/lib/modes'
@@ -18,12 +18,14 @@ interface Workspace {
 interface DocListPanelProps {
   activeDocId: string | null
   onSelect: (id: string) => void
+  onDelete?: (id: string) => void
 }
 
-export function DocListPanel({ activeDocId, onSelect }: DocListPanelProps) {
-  const { documents } = useDocuments()
+export function DocListPanel({ activeDocId, onSelect, onDelete }: DocListPanelProps) {
+  const { documents, deleteDocument } = useDocuments()
   const [workspaces, setWorkspaces] = useState<Workspace[]>([])
   const [selectedWs, setSelectedWs] = useState<string | null>(null)
+  const [deletingId, setDeletingId] = useState<string | null>(null)
   const supabase = createClient()
 
   useEffect(() => {
@@ -76,28 +78,54 @@ export function DocListPanel({ activeDocId, onSelect }: DocListPanelProps) {
             const modeConfig = MODES[doc.mode as Mode]
             const isActive = doc.id === activeDocId
             return (
-              <button
+              <div
                 key={doc.id}
-                onClick={() => onSelect(doc.id)}
                 className={clsx(
-                  'w-full flex flex-col items-start px-4 py-3 border-b border-[var(--border)] transition-colors duration-100 text-left relative',
+                  'group w-full flex items-stretch border-b border-[var(--border)] transition-colors duration-100 relative',
                   isActive ? 'bg-[var(--bg-active)]' : 'hover:bg-[var(--bg-hover)]'
                 )}
               >
                 {isActive && <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-[var(--accent)]" />}
-                
-                <div className="flex items-start justify-between w-full gap-2 mb-1">
-                  <span className={clsx('text-xs font-medium line-clamp-2 leading-snug flex-1', isActive ? 'text-[var(--text)]' : 'text-[var(--text-soft)]')}>
-                    {doc.name}
-                  </span>
-                  {doc.starred && <StarIcon size={10} className="text-[var(--accent)] shrink-0 mt-0.5" />}
-                </div>
 
-                <div className="flex items-center gap-1.5 flex-wrap w-full">
-                  {modeConfig && <span className="text-[9px] font-medium text-[var(--accent)] uppercase tracking-wider">{modeConfig.label}</span>}
-                  <span className="text-[10px] text-[var(--text-muted)]">{Math.round(doc.file_size / 1024)} KB</span>
-                </div>
-              </button>
+                <button
+                  onClick={() => onSelect(doc.id)}
+                  className="flex-1 flex flex-col items-start px-4 py-3 text-left min-w-0"
+                >
+                  <div className="flex items-start justify-between w-full gap-2 mb-1">
+                    <span className={clsx('text-xs font-medium line-clamp-2 leading-snug flex-1', isActive ? 'text-[var(--text)]' : 'text-[var(--text-soft)]')}>
+                      {doc.name}
+                    </span>
+                    {doc.starred && <StarIcon size={10} className="text-[var(--accent)] shrink-0 mt-0.5" />}
+                  </div>
+                  <div className="flex items-center gap-1.5 flex-wrap w-full">
+                    {modeConfig && <span className="text-[9px] font-medium text-[var(--accent)] uppercase tracking-wider">{modeConfig.label}</span>}
+                    <span className="text-[10px] text-[var(--text-muted)]">{Math.round(doc.file_size / 1024)} KB</span>
+                  </div>
+                </button>
+
+                <button
+                  onClick={async (e) => {
+                    e.stopPropagation()
+                    setDeletingId(doc.id)
+                    try {
+                      await deleteDocument(doc.id)
+                      onDelete?.(doc.id)
+                    } finally {
+                      setDeletingId(null)
+                    }
+                  }}
+                  disabled={deletingId === doc.id}
+                  className="opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center w-8 shrink-0 mr-1 rounded-md hover:bg-red-50 hover:text-red-500 text-[var(--text-muted)] self-center"
+                  title="Delete document"
+                  aria-label="Delete document"
+                >
+                  {deletingId === doc.id ? (
+                    <span className="w-3 h-3 border border-current border-t-transparent rounded-full animate-spin block" />
+                  ) : (
+                    <TrashIcon size={12} />
+                  )}
+                </button>
+              </div>
             )
           })
         )}

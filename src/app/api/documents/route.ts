@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { createServerClient } from '@/lib/supabase-server'
 import { listDocuments, updateDocument, removeDocument } from '@/lib/local-store'
+import { deleteLargeDocText } from '@/lib/session-cache'
 
 function isSupabaseConfigured() {
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
@@ -48,11 +49,13 @@ export async function DELETE(req: Request) {
 
   if (!isSupabaseConfigured()) {
     removeDocument(id)
+    deleteLargeDocText(id)
     return NextResponse.json({ success: true })
   }
 
   const supabase = createServerClient()
   const { error } = await supabase.from('documents').delete().eq('id', id)
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
+  deleteLargeDocText(id)
   return NextResponse.json({ success: true })
 }

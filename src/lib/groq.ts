@@ -4,7 +4,9 @@ import { buildSummaryPrompt, buildActionsPrompt, type Mode } from './modes'
 
 export const groq = createGroq({ apiKey: process.env.GROQ_API_KEY })
 export const MODEL = 'llama-3.3-70b-versatile'
-export const MAX_CONTEXT_CHARS = 96000  // ~128k tokens, leaving room for response
+export const MAX_CONTEXT_CHARS = 96000  // used for chat (full context)
+// Free-tier Groq TPM is 12k. Budget: ~7k input text + 500 system + 2k response = 9.5k total
+const MAX_SUMMARY_CHARS = 28000
 
 export interface SummaryJson {
   overview: string[]
@@ -22,19 +24,20 @@ export async function summarizeDocument(
   text: string,
   mode: Mode
 ): Promise<SummaryJson | null> {
-  const truncated = text.slice(0, MAX_CONTEXT_CHARS)
+  const truncated = text.slice(0, MAX_SUMMARY_CHARS)
   try {
     const { text: raw } = await generateText({
       model: groq(MODEL),
       system: buildSummaryPrompt(mode),
       prompt: truncated,
       // @ts-ignore
-      maxTokens: 1500,
+      maxTokens: 2000,
     })
     const jsonMatch = raw.match(/\{[\s\S]*\}/)
     if (!jsonMatch) return null
     return JSON.parse(jsonMatch[0]) as SummaryJson
-  } catch {
+  } catch (err) {
+    console.error('[summarizeDocument] failed:', err)
     return null
   }
 }
