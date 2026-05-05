@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { I } from '@/components/ui/icons';
 import { Btn, Tooltip } from '@/components/ui/primitives';
 import { useChat } from '@ai-sdk/react';
+import { DefaultChatTransport } from 'ai';
 import type { Document } from '@/hooks/useDocuments';
 
 const formatMsg = (text: string) => {
@@ -53,8 +54,10 @@ const ChatMessage = ({ msg, doc }: { msg: any; doc: Document }) => {
 export default function ChatTab({ doc }: { doc: Document }) {
   const [input, setInput] = useState('');
   const { messages, sendMessage, status, setMessages, error } = useChat({
-    api: '/api/chat',
-    body: { documentId: doc.id },
+    transport: new DefaultChatTransport({
+      api: '/api/chat',
+      body: { documentId: doc.id },
+    }),
     onError: (err) => console.error('Chat error:', err),
   });
   const scrollRef = useRef<HTMLDivElement>(null);
