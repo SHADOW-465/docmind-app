@@ -11,6 +11,7 @@
     "test:run": "vitest run"
   },
   "dependencies": {
+    "@ai-sdk/gateway": "^3.0.121",
     "@ai-sdk/groq": "^3.0.35",
     "@ai-sdk/react": "^3.0.170",
     "@supabase/supabase-js": "^2.104.0",
@@ -29,7 +30,8 @@
     "swr": "^2.4.1",
     "tailwind-merge": "^3.5.0",
     "tesseract.js": "^7.0.0",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
