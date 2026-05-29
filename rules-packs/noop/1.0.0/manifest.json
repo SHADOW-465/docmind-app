@@ -1,0 +1,11 @@
+{
+  "id": "noop",
+  "version": "1.0.0",
+  "displayName": "No-op Pack",
+  "locales": ["en"],
+  "schemas": [],
+  "rules": [],
+  "lookups": [],
+  "templates": [],
+  "hitlPolicy": "hitl-policy.yaml"
+}
