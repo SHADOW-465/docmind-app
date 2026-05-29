@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { ok, fail, needsReview } from '@engine/result';
+import type { PrimitiveResult } from '@engine/types';
 
 describe('result helpers', () => {
   it('ok() returns ok=true with value and confidence', () => {
@@ -27,5 +28,15 @@ describe('result helpers', () => {
   it('needsReview() flips needsReview flag', () => {
     const r = needsReview(ok({}, { confidence: 0.5 }));
     expect(r.needsReview).toBe(true);
+  });
+
+  it('fail<T>() is assignable to PrimitiveResult<T> for typed callers', () => {
+    // Compile-time check: this would fail tsc if fail were not generic.
+    function typedFn(): PrimitiveResult<{ foo: string }> {
+      return fail<{ foo: string }>('E', 'x');
+    }
+    const r = typedFn();
+    expect(r.ok).toBe(false);
+    expect(r.error?.code).toBe('E');
   });
 });

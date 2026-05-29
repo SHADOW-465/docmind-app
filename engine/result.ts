@@ -14,10 +14,10 @@ export function ok<T>(
   };
 }
 
-export function fail(code: string, message: string): PrimitiveResult<null> {
+export function fail<T = never>(code: string, message: string): PrimitiveResult<T> {
   return {
     ok: false,
-    value: null,
+    value: null as T,
     confidence: 0,
     citations: [],
     needsReview: false,
