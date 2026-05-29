@@ -19,7 +19,8 @@ describe('manifestSchema', () => {
   });
 
   it('rejects missing id', () => {
-    const { id, ...bad } = valid;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { id: _id, ...bad } = valid;
     expect(() => manifestSchema.parse(bad)).toThrow();
   });
 
