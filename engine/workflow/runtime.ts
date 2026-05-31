@@ -1,8 +1,9 @@
 // engine/workflow/runtime.ts
 import { createServerClient } from '@/lib/supabase-server';
 import type {
-  EdgeGuard, PrimitiveResult, WorkflowEdge, WorkflowGraph, WorkflowRun,
+  EdgeGuard, PrimitiveResult, WorkflowEdge, WorkflowGraph, WorkflowRun, Workspace,
 } from '@engine/types';
+import { getWorkspace } from '@engine/storage/workspace';
 
 import { ingestPrimitive,   type IngestInput }   from '@engine/primitives/ingest';
 import { classifyPrimitive } from '@engine/primitives/classify';
@@ -74,6 +75,9 @@ export async function runWorkflow(input: RunWorkflowInput): Promise<RunWorkflowO
     .single();
   if (runErr || !runRow) throw new Error(`runWorkflow: create run failed: ${runErr?.message}`);
 
+  const workspace: Workspace | null = await getWorkspace(input.workspaceId);
+  if (!workspace) throw new Error(`runWorkflow: workspace ${input.workspaceId} not found`);
+
   const run: WorkflowRun = {
     id: runRow.id, workspaceId: runRow.workspace_id, graphId: runRow.graph_id,
     currentNode: runRow.current_node, state: runRow.state, updatedAt: runRow.updated_at,
@@ -98,6 +102,8 @@ export async function runWorkflow(input: RunWorkflowInput): Promise<RunWorkflowO
       workflowRunId: run.id,
       nodeId: current,
       config: nodeDef.config,
+      state: { ...state },
+      workspace,
       ...sideInput,
     });
     results.push({ node: current, result });

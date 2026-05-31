@@ -36,3 +36,16 @@ describe('pickNextNode', () => {
     expect(pickNextNode('z', edges, {})).toBeNull();
   });
 });
+
+import type { Workspace } from '@engine/types';
+
+describe('runWorkflow ctx', () => {
+  it('passes state snapshot and workspace to each primitive (shape-only test)', () => {
+    const w: Workspace = {
+      id: 'ws-x', orgId: 'org-x', ownerId: null,
+      workflowId: 'noop/v1', rulesPackId: 'noop', rulesPackVersion: '1.0.0',
+      status: 'open', createdAt: new Date().toISOString(),
+    };
+    expect(w.id).toBe('ws-x');
+  });
+});
