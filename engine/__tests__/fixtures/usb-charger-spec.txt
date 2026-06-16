@@ -1,0 +1,36 @@
+Acme 65W GaN USB-C Charger — Product Specification
+
+Brand: Acme GmbH
+Model: ACME-GAN65-EU
+Country of manufacture: China
+Importer of record (EU): Acme GmbH, Friedrichstraße 123, 10117 Berlin, Germany
+EU VAT ID: DE123456789
+German tax number: 27/123/12345
+
+Description: A 65W USB-C wall charger using GaN technology. Compatible with
+laptops, tablets, and phones. Supports USB Power Delivery 3.0 with PPS up to
+3.3-21V/3.25A. Single USB-C output. CE and UKCA marked. Compliant with EN 62368-1.
+
+Materials:
+- Polycarbonate housing (78%)
+- Internal PCB and copper windings (18%)
+- Steel grounding plate (4%)
+
+Weight: 120 g (device only)
+
+Packaging:
+- Outer cardboard box: 90 g
+- Printed instruction insert (paper): 8 g
+- 1.5 m USB-C cable (TPE jacket): 35 g
+- Total packaging weight (excluding cable): 98 g
+
+Hazards / Warnings:
+- Do not immerse in water. Indoor use only.
+- Disconnect from mains during thunderstorms.
+- For use with USB-C devices only.
+
+EAN/GTIN: 4006381333931
+
+Manufacturer safety contact: safety@acme-electronics.de
+
+This product contains no battery.
