@@ -1,0 +1,22 @@
+{
+  "id": "eu-gpsr-epr",
+  "version": "2026.05.0",
+  "displayName": "EU GPSR + EPR (Germany)",
+  "locales": ["de", "en"],
+  "schemas": [
+    "schemas/ProductCatalogItem.json",
+    "schemas/EprRegistrationDe.json",
+    "schemas/GpsrSafetyNotice.json"
+  ],
+  "rules": [
+    "rules/eligibility.yaml",
+    "rules/high-risk.yaml"
+  ],
+  "lookups": [
+    "lookups/eu-product-categories.jsonl",
+    "lookups/de-epr-schemes.jsonl",
+    "lookups/de-language-strings.jsonl"
+  ],
+  "templates": [],
+  "hitlPolicy": "hitl-policy.yaml"
+}

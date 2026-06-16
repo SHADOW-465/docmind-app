@@ -1,0 +1,20 @@
+# Per-field confidence threshold; values below this set needsReview=true.
+threshold: 0.85
+
+# Categories that ALWAYS force HITL regardless of confidence.
+# Matched against ProductCatalogItem.categoryId (see lookups/eu-product-categories.jsonl).
+alwaysGateCategories:
+  - cat-batteries-portable
+  - cat-batteries-industrial
+  - cat-electronics-consumer
+  - cat-toys
+
+# Reviewer roles permitted to approve gated artifacts. Phase 2 doesn't enforce
+# this (auto-approve passes through); recorded for future phases.
+reviewerRoles:
+  - reviewer
+  - admin
+  - owner
+
+# SLA (informational, not enforced in Phase 2).
+slaHours: 24
