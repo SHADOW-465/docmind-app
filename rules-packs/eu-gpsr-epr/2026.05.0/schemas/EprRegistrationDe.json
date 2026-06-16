@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "EprRegistrationDe",
+  "title": "EprRegistrationDe",
+  "type": "object",
+  "required": ["scheme", "producer", "productCategory", "perUnitWeights"],
+  "properties": {
+    "scheme": {
+      "type": "string",
+      "enum": ["stiftung-ear", "zsvr"]
+    },
+    "producer": {
+      "type": "object",
+      "required": ["name", "address", "country"],
+      "properties": {
+        "name": { "type": "string" },
+        "address": { "type": "string" },
+        "country": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "vatId": { "type": "string" },
+        "deTaxNumber": { "type": "string" },
+        "deAuthRep": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "address": { "type": "string" }
+          }
+        }
+      }
+    },
+    "productCategory": { "type": "string" },
+    "perUnitWeights": {
+      "type": "object",
+      "properties": {
+        "deviceGrams": { "type": "number", "minimum": 0 },
+        "packagingGrams": { "type": "number", "minimum": 0 }
+      }
+    },
+    "weeeClass": { "type": "string" },
+    "packagingMaterials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["material", "weightGrams"],
+        "properties": {
+          "material": {
+            "type": "string",
+            "enum": ["paper", "cardboard", "glass", "plastic-pet", "plastic-other", "metal-steel", "metal-aluminium", "wood", "composite"]
+          },
+          "weightGrams": { "type": "number", "minimum": 0 }
+        }
+      }
+    },
+    "registrationLanguage": { "type": "string", "enum": ["de"] }
+  }
+}

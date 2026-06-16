@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ProductCatalogItem",
+  "title": "ProductCatalogItem",
+  "type": "object",
+  "required": ["name", "manufacturer", "weightGrams", "categoryId"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1 },
+    "manufacturer": {
+      "type": "object",
+      "required": ["name", "address", "country"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "address": { "type": "string", "minLength": 1 },
+        "country": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "vatId": { "type": "string" }
+      }
+    },
+    "importer": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "address": { "type": "string" },
+        "country": { "type": "string", "pattern": "^[A-Z]{2}$" },
+        "vatId": { "type": "string" }
+      }
+    },
+    "weightGrams": { "type": "number", "minimum": 0 },
+    "materials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "percentage"],
+        "properties": {
+          "type": { "type": "string" },
+          "percentage": { "type": "number", "minimum": 0, "maximum": 100 }
+        }
+      }
+    },
+    "packaging": {
+      "type": "object",
+      "properties": {
+        "totalWeightGrams": { "type": "number", "minimum": 0 },
+        "components": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["material", "weightGrams"],
+            "properties": {
+              "material": { "type": "string" },
+              "weightGrams": { "type": "number", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "hasBattery": { "type": "boolean" },
+    "batteryDetails": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "required": ["chemistry", "capacityWh", "weightGrams"],
+          "properties": {
+            "chemistry": { "type": "string" },
+            "capacityWh": { "type": "number", "minimum": 0 },
+            "weightGrams": { "type": "number", "minimum": 0 }
+          }
+        }
+      ]
+    },
+    "eanGtin": { "type": "string", "pattern": "^[0-9]{8,14}$" },
+    "categoryId": { "type": "string", "minLength": 1 }
+  }
+}

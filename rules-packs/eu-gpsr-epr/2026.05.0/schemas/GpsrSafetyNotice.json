@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "GpsrSafetyNotice",
+  "title": "GpsrSafetyNotice",
+  "type": "object",
+  "required": ["product", "manufacturer", "safetyInformation", "languages"],
+  "properties": {
+    "product": {
+      "type": "object",
+      "required": ["name", "modelOrType", "batchOrSerial"],
+      "properties": {
+        "name": { "type": "string" },
+        "modelOrType": { "type": "string" },
+        "batchOrSerial": { "type": "string" }
+      }
+    },
+    "manufacturer": {
+      "type": "object",
+      "required": ["name", "postalAddress", "electronicAddress"],
+      "properties": {
+        "name": { "type": "string" },
+        "postalAddress": { "type": "string" },
+        "electronicAddress": { "type": "string", "format": "email" }
+      }
+    },
+    "euResponsiblePerson": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "postalAddress": { "type": "string" },
+        "electronicAddress": { "type": "string" }
+      }
+    },
+    "safetyInformation": {
+      "type": "object",
+      "required": ["warnings", "instructionsForUse"],
+      "properties": {
+        "warnings": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "instructionsForUse": { "type": "string", "minLength": 1 },
+        "intendedUse": { "type": "string" },
+        "foreseeableMisuse": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "languages": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z]{2}$" },
+      "minItems": 1
+    },
+    "safetyContact": {
+      "type": "object",
+      "required": ["email"],
+      "properties": { "email": { "type": "string", "format": "email" } }
+    }
+  }
+}
