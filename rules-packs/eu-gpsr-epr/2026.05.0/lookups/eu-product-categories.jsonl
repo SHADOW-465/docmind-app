@@ -1,0 +1,31 @@
+{"id":"cat-unknown","label":"Unknown / unclassified","weeeClass":null,"gpsrRiskBand":"high","notes":"Fallback when classifier cannot decide; always gated."}
+{"id":"cat-electronics-consumer","label":"Consumer electronics","weeeClass":"4","gpsrRiskBand":"high","notes":"Phones, chargers, headphones, audio."}
+{"id":"cat-electronics-it","label":"IT / telecommunication equipment","weeeClass":"4","gpsrRiskBand":"medium","notes":"Routers, laptops, peripherals."}
+{"id":"cat-electronics-tools","label":"Electrical tools","weeeClass":"6","gpsrRiskBand":"medium","notes":"Drills, screwdrivers, garden tools with motors."}
+{"id":"cat-electronics-lighting","label":"Lighting equipment","weeeClass":"5","gpsrRiskBand":"medium","notes":"LED bulbs, lamps, fixtures."}
+{"id":"cat-electronics-medical","label":"Medical devices (low risk)","weeeClass":"8","gpsrRiskBand":"high","notes":"Thermometers, blood pressure monitors."}
+{"id":"cat-batteries-portable","label":"Portable batteries","weeeClass":null,"gpsrRiskBand":"high","notes":"AA, AAA, lithium coin cells, power banks (BattG)."}
+{"id":"cat-batteries-industrial","label":"Industrial batteries","weeeClass":null,"gpsrRiskBand":"high","notes":"E-bike packs, UPS battery banks."}
+{"id":"cat-toys","label":"Toys (3+ years)","weeeClass":null,"gpsrRiskBand":"high","notes":"GPSR + Toy Safety Directive; always gated."}
+{"id":"cat-textiles","label":"Textiles / apparel","weeeClass":null,"gpsrRiskBand":"low","notes":"Clothing without electronic components."}
+{"id":"cat-kitchen-utensils","label":"Kitchen utensils","weeeClass":null,"gpsrRiskBand":"low","notes":"Spatulas, ladles, whisks, non-electric hand tools."}
+{"id":"cat-kitchen-appliances","label":"Kitchen small appliances","weeeClass":"2","gpsrRiskBand":"medium","notes":"Toasters, kettles, blenders, electric small household devices."}
+{"id":"cat-kitchen-large-appliances","label":"Large kitchen appliances","weeeClass":"1","gpsrRiskBand":"medium","notes":"Ovens, dishwashers, large household appliances."}
+{"id":"cat-cookware","label":"Cookware","weeeClass":null,"gpsrRiskBand":"low","notes":"Pots, pans, baking trays without electronics."}
+{"id":"cat-furniture","label":"Furniture","weeeClass":null,"gpsrRiskBand":"low","notes":"Tables, chairs, shelving without electronic components."}
+{"id":"cat-garden-tools","label":"Garden tools (non-electric)","weeeClass":null,"gpsrRiskBand":"low","notes":"Spades, rakes, secateurs, manual hand tools."}
+{"id":"cat-garden-machinery","label":"Garden machinery (electric)","weeeClass":"6","gpsrRiskBand":"medium","notes":"Electric mowers, hedge trimmers, leaf blowers."}
+{"id":"cat-sporting-goods","label":"Sporting goods","weeeClass":null,"gpsrRiskBand":"medium","notes":"Balls, rackets, fitness equipment without electronics."}
+{"id":"cat-bicycles","label":"Bicycles","weeeClass":null,"gpsrRiskBand":"medium","notes":"Non-electric bicycles and components."}
+{"id":"cat-books-media","label":"Books / media","weeeClass":null,"gpsrRiskBand":"low","notes":"Printed books, magazines, physical media."}
+{"id":"cat-cosmetics","label":"Cosmetics","weeeClass":null,"gpsrRiskBand":"high","notes":"Make-up, skincare; EU Cosmetics Regulation applies."}
+{"id":"cat-personal-care","label":"Personal care","weeeClass":null,"gpsrRiskBand":"high","notes":"Soaps, shampoos, hygiene products."}
+{"id":"cat-food-contact","label":"Food contact items","weeeClass":null,"gpsrRiskBand":"high","notes":"Food packaging and utensils in direct food contact."}
+{"id":"cat-baby-products","label":"Baby products (non-toy)","weeeClass":null,"gpsrRiskBand":"high","notes":"Strollers, cots, feeding items; not toys."}
+{"id":"cat-pet-products","label":"Pet products","weeeClass":null,"gpsrRiskBand":"low","notes":"Pet accessories, bowls, leashes without electronics."}
+{"id":"cat-office-supplies","label":"Office supplies","weeeClass":null,"gpsrRiskBand":"low","notes":"Folders, binders, desk organisers."}
+{"id":"cat-stationery","label":"Stationery","weeeClass":null,"gpsrRiskBand":"low","notes":"Pens, paper, notebooks."}
+{"id":"cat-jewellery","label":"Jewellery","weeeClass":null,"gpsrRiskBand":"low","notes":"Rings, necklaces, earrings without electronics."}
+{"id":"cat-watches","label":"Watches","weeeClass":null,"gpsrRiskBand":"low","notes":"Analogue/quartz watches; smartwatches classed as consumer electronics."}
+{"id":"cat-bags-luggage","label":"Bags / luggage","weeeClass":null,"gpsrRiskBand":"low","notes":"Handbags, backpacks, suitcases without electronics."}
+{"id":"cat-shoes","label":"Shoes","weeeClass":null,"gpsrRiskBand":"low","notes":"Footwear without electronic components."}

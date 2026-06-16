@@ -1,0 +1,21 @@
+{"key":"producer.name","de":"Name des Herstellers","en":"Producer name"}
+{"key":"producer.address","de":"Anschrift des Herstellers","en":"Producer address"}
+{"key":"producer.country","de":"Land","en":"Country"}
+{"key":"producer.vatId","de":"USt-IdNr.","en":"VAT ID"}
+{"key":"producer.deTaxNumber","de":"Steuernummer","en":"German tax number"}
+{"key":"productCategory","de":"Produktkategorie","en":"Product category"}
+{"key":"weeeClass","de":"WEEE-Geräteklasse","en":"WEEE class"}
+{"key":"perUnitWeights.deviceGrams","de":"Gerätegewicht (g)","en":"Device weight (g)"}
+{"key":"perUnitWeights.packagingGrams","de":"Verpackungsgewicht (g)","en":"Packaging weight (g)"}
+{"key":"packagingMaterials","de":"Verpackungsmaterialien","en":"Packaging materials"}
+{"key":"importer.name","de":"Name des Importeurs","en":"Importer name"}
+{"key":"importer.address","de":"Anschrift des Importeurs","en":"Importer address"}
+{"key":"importer.vatId","de":"USt-IdNr. des Importeurs","en":"Importer VAT ID"}
+{"key":"safetyInformation.warnings","de":"Sicherheitshinweise / Warnhinweise","en":"Safety warnings"}
+{"key":"safetyInformation.instructionsForUse","de":"Gebrauchsanweisung","en":"Instructions for use"}
+{"key":"euResponsiblePerson.name","de":"Name der verantwortlichen Person in der EU","en":"EU responsible person name"}
+{"key":"euResponsiblePerson.postalAddress","de":"Postanschrift der verantwortlichen Person in der EU","en":"EU responsible person postal address"}
+{"key":"manufacturer.electronicAddress","de":"Elektronische Adresse des Herstellers","en":"Manufacturer electronic address"}
+{"key":"safetyContact.email","de":"E-Mail-Adresse für Sicherheitsanfragen","en":"Safety contact email"}
+{"key":"product.modelOrType","de":"Modell- oder Typenbezeichnung","en":"Model or type"}
+{"key":"product.batchOrSerial","de":"Chargen- oder Seriennummer","en":"Batch or serial number"}
