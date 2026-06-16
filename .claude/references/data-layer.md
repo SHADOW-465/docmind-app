@@ -79,6 +79,26 @@ All tables have RLS enabled with permissive "allow all" policies (MVP approach �
 
 ---
 
+## Engine tables (`eng_*`) — Phases 1–2
+
+Added by migration `supabase/migrations/002_engine_schema.sql`. These back the engine layer (see [`engine.md`](./engine.md)). The legacy tables above are untouched. Accessed only via `engine/storage/*` (which wrap `createServerClient()`).
+
+| Table | Intent (column highlights) |
+|-------|----------------------------|
+| `organizations` | Tenant root for engine data. |
+| `memberships` | User ↔ organization membership / roles. |
+| `rules_packs` | Registry of installed rules packs (id, version, manifest metadata). |
+| `eng_workspaces` | Run container; owns sources/entities/runs/artifacts/traces. Has a status. |
+| `eng_sources` | Ingested source documents per workspace. |
+| `eng_canonical_entities` | Normalized extracted entities (`insertEntity`/`listEntities`). |
+| `eng_workflow_runs` | Persisted `WorkflowRun` state as the runtime walks the graph. |
+| `eng_artifacts` | Emitted output artifacts (`status='emitted'`, `format='json'`). |
+| `eng_trace_events` | Provenance/trace sink, one row per primitive step. **Hash-partitioned 8 ways by `workspace_id`.** |
+
+See `002_engine_schema.sql` for full DDL.
+
+---
+
 ## summary_json Shape
 
 The `summary_json` column stores structured output from Groq. Its shape varies by mode but follows a consistent pattern:

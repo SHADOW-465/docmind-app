@@ -7,6 +7,18 @@
 - **SDK:** AI SDK v6 (`ai@6.0.168`, `@ai-sdk/react@3.0.170`)
 - **Groq wrapper:** `src/lib/groq.ts`
 
+## Engine: AI Gateway provider (Phases 1–2)
+
+The engine layer does **not** call Groq directly. It routes all model calls through the **Vercel AI Gateway** wrapper at `engine/providers/gateway.ts`. (Deps: `@ai-sdk/gateway`. See [`engine.md`](./engine.md).)
+
+- `model(id)` takes `"provider/model"` strings (e.g. `groq/llama-3.3-70b-versatile`).
+- Model split via constants:
+  - `DEFAULT_FAST_MODEL = 'groq/llama-3.3-70b-versatile'` — `classify`, `extract`
+  - `DEFAULT_REASONING_MODEL = 'anthropic/claude-sonnet-4-5'` — `reason`
+  - `DEFAULT_OCR_MODEL = 'mistral/mistral-ocr-latest'`
+- **AI SDK v6 uses `maxOutputTokens` (NOT `maxTokens`).** Applies to both the legacy Groq code and the engine.
+- The **sequential-call rule still applies**: the `draft` primitive makes 3 LLM calls (WEEE + packaging + GPSR notice) **sequentially**, never via `Promise.all`.
+
 ## Free-Tier Constraints
 
 | Limit | Value | Impact |

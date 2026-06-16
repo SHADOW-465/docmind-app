@@ -1,5 +1,18 @@
 # DocMind — Architecture Reference
 
+## Engine layer (Phases 1–2)
+
+DocMind is being repositioned from a chat-with-PDF app into a **vertical-agnostic "Document Creation Agent" engine**: it turns source documents + a versioned **rules pack** into compliant **output artifacts** with traceable provenance and human-in-the-loop gating. The first vertical is **EU GPSR/EPR compliance (Germany)**.
+
+- Lives in a top-level `engine/` directory (sibling of `src/`, NOT under it), framework-agnostic, consumed by Next.js via the `@engine/*` alias.
+- Composed of 10 **primitives** (ingest → classify → extract → lookup → reason → draft → validate → hitl → emit, plus the trace sink) wired by a **workflow DSL** and driven by versioned **rules packs** under `rules-packs/<id>/<version>/`.
+- A **new vertical = a new rules pack + a workflow file, no engine code change.**
+- New `eng_*` Supabase tables back it (see `data-layer.md`); the legacy chat app (below) is untouched.
+
+**See [`engine.md`](./engine.md) for full detail** (primitives, rules-pack layout, DSL, provider/model strategy, tables).
+
+---
+
 ## Overview
 
 DocMind is a document intelligence application that lets users upload documents, get AI-generated summaries, and chat with document content. It uses a three-panel workspace layout and supports multiple document processing modes.
