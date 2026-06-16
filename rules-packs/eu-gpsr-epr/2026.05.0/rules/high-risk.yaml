@@ -1,0 +1,18 @@
+# Conditions that force HITL gating regardless of confidence. Consumed by the
+# validate primitive together with hitl-policy.yaml::alwaysGateCategories.
+
+predicates:
+  - id: HIGH_RISK_PRODUCT
+    description: "Product category is on the always-gate list."
+    when:
+      categoryIn:
+        - cat-batteries-portable
+        - cat-batteries-industrial
+        - cat-electronics-consumer
+        - cat-toys
+
+  - id: HIGH_RISK_MISSING_VAT
+    description: "Producer/importer has no VAT ID — German EPR schemes require one."
+    when:
+      missingFields:
+        - producer.vatId

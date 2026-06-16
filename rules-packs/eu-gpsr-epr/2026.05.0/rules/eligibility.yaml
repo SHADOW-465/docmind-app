@@ -1,0 +1,38 @@
+# Maps product categories (from lookups/eu-product-categories.jsonl) to the
+# German EPR schemes that apply. The reason primitive consumes this to decide
+# which drafts to produce.
+
+rules:
+  - id: weee-electronics
+    when:
+      anyCategoryIn:
+        - cat-electronics-consumer
+        - cat-electronics-it
+        - cat-electronics-tools
+        - cat-electronics-lighting
+        - cat-electronics-medical
+    then:
+      schemes:
+        - stiftung-ear
+      mandatory: true
+      rationale: "ElektroG §6 — electrical and electronic equipment placed on the DE market requires WEEE registration."
+
+  - id: packaging-any
+    when:
+      hasPackaging: true
+    then:
+      schemes:
+        - zsvr
+      mandatory: true
+      rationale: "VerpackG §9 — all sales packaging placed on the DE market requires LUCID/ZSVR registration."
+
+  - id: batteries-portable
+    when:
+      anyCategoryIn:
+        - cat-batteries-portable
+        - cat-batteries-industrial
+    then:
+      schemes:
+        - stiftung-ear
+      mandatory: true
+      rationale: "BattG §4 — battery producers must register before placing on market. Phase 2 routes via Stiftung EAR; battery-specific PROs deferred."
