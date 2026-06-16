@@ -1,0 +1,514 @@
+{
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\eslint.config.mjs": {
+    "mtime": 1777463808.498854,
+    "hash": "6c4307ffa009658f5c97f5629094c0c2"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\next-env.d.ts": {
+    "mtime": 1777471617.2936888,
+    "hash": "29f60a376e12bf72b67d4994fcc84214"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\next.config.ts": {
+    "mtime": 1777463808.5008745,
+    "hash": "4ab83545e512d3cc50fc43261bad6c1d"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\postcss.config.mjs": {
+    "mtime": 1777463808.5064845,
+    "hash": "481fac0fdecd70e1821cc30b86030c1a"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\supabase_schema.sql": {
+    "mtime": 1780065605.1686492,
+    "hash": "90616f5b1bbb1cc7d4e3858ed893cf38"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\vitest.config.ts": {
+    "mtime": 1780065604.8854399,
+    "hash": "77e26dd7972c6d45760bd7832f7ea75b"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\result.ts": {
+    "mtime": 1780065605.126302,
+    "hash": "48b46dbc707342839bb7f39f6c13c9c8"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\types.ts": {
+    "mtime": 1780065604.9686365,
+    "hash": "f6a45753b9d8aa24540f9b77cc8c803e"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\primitives\\classify.ts": {
+    "mtime": 1781590141.7473211,
+    "hash": "63bc658ae29b56a02368dc9fc14727dc"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\primitives\\draft.ts": {
+    "mtime": 1781591215.5997941,
+    "hash": "38d8d4c0960e6621e06ba7ebc8e753ff"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\primitives\\emit.ts": {
+    "mtime": 1781591673.6272728,
+    "hash": "cd3e6ad3939ed22679731d3f23d8a42c"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\primitives\\extract.ts": {
+    "mtime": 1781590345.7196977,
+    "hash": "aa8e5851a8737885c194a55c250f61bd"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\primitives\\hitl.ts": {
+    "mtime": 1781591530.8559196,
+    "hash": "32145eb3adbf6a8deebba9a74df21289"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\primitives\\index.ts": {
+    "mtime": 1780065605.653385,
+    "hash": "2834ff65ec65170d59daa70094d0beaa"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\primitives\\ingest.ts": {
+    "mtime": 1780065605.6554828,
+    "hash": "6273b13d67e308daebc09551ca9567b0"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\primitives\\lookup.ts": {
+    "mtime": 1781590506.091905,
+    "hash": "9d7fdd28cbe6feec238c691e1dc4e2cc"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\primitives\\reason.ts": {
+    "mtime": 1781591004.5084145,
+    "hash": "8e7c4273762eb1b0dec9c37649fc7218"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\primitives\\trace.ts": {
+    "mtime": 1780065605.2195082,
+    "hash": "0fc1bdfb58f4b8a4157b98958fb7fd8d"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\primitives\\validate.ts": {
+    "mtime": 1781591399.4318738,
+    "hash": "836054080a949719e953314387c00853"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\providers\\gateway.ts": {
+    "mtime": 1780065605.7931652,
+    "hash": "3c6ba77de0ecd94db861e8a8e0fcbebc"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\rules-pack\\context.ts": {
+    "mtime": 1781588597.199667,
+    "hash": "78822e6bc4b623c925c9080252e9ca9f"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\rules-pack\\loader.ts": {
+    "mtime": 1780065605.4730587,
+    "hash": "12d9a9feee975fb7c550638ba0fe38e9"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\rules-pack\\lookups.ts": {
+    "mtime": 1781589871.9810448,
+    "hash": "b3f5f00344d35d7f0ee2b2e62f1307ed"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\rules-pack\\prompts.ts": {
+    "mtime": 1781589596.089058,
+    "hash": "ca5e21fd8faa022fea20dbeb6c1b30f8"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\rules-pack\\schema.ts": {
+    "mtime": 1780065605.4177365,
+    "hash": "d8c89f79bb06d88a03e557d9d9958cee"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\rules-pack\\schemas.ts": {
+    "mtime": 1781589736.4933977,
+    "hash": "9431c9a00e3479b7ab0f0e6405db4083"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\rules-pack\\version.ts": {
+    "mtime": 1780065605.3691752,
+    "hash": "02973fac8f8e02a39f4c6d7dde45a520"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\storage\\artifact.ts": {
+    "mtime": 1780065605.318974,
+    "hash": "924e5bfd02548894f236d0441ea1af6b"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\storage\\entities.ts": {
+    "mtime": 1780265883.1881695,
+    "hash": "a3322b0ce8a151d160c7a5e20f8fbcee"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\storage\\trace.ts": {
+    "mtime": 1780065605.2207398,
+    "hash": "4dee88befe56454fedc9fa7eb0519cba"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\storage\\workspace.ts": {
+    "mtime": 1780065605.2662787,
+    "hash": "b1f58cf4cc8b0f5a43c90d066662f5b0"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\workflow\\defineWorkflow.ts": {
+    "mtime": 1780065605.5918055,
+    "hash": "0ffb0bba137fd134a4a9853d2def6a1d"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\workflow\\dsl.ts": {
+    "mtime": 1780065605.5321531,
+    "hash": "522fb9ae5d8711d24bee5560574843c2"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\workflow\\runtime.ts": {
+    "mtime": 1780265649.388278,
+    "hash": "6248f01944f687906e219d6f1590b5de"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\workflows\\gpsr-epr.workflow.ts": {
+    "mtime": 1781593159.955328,
+    "hash": "2287386dc5b7eef48d91d8a331a2407a"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\workflows\\noop.workflow.ts": {
+    "mtime": 1780065605.8572555,
+    "hash": "4925c626276e5d28ead65ea3c13e959e"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\result.test.ts": {
+    "mtime": 1780065605.126302,
+    "hash": "ad386a2eab8995f3af21902316a23ea4"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\integration\\gpsr-epr-workflow.test.ts": {
+    "mtime": 1781594198.4250886,
+    "hash": "df06e39fb1b98d9e8c109b6b32c4dfeb"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\integration\\noop-workflow.test.ts": {
+    "mtime": 1780065605.8552516,
+    "hash": "db904de013de0cc2f8d45abdef63610e"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\primitives\\classify.test.ts": {
+    "mtime": 1781590075.369774,
+    "hash": "1adf94930093098593587a4f87ab0354"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\primitives\\draft.test.ts": {
+    "mtime": 1781591184.3771589,
+    "hash": "456ec405409ca0db01ca0628c157ba69"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\primitives\\emit.test.ts": {
+    "mtime": 1781591650.9498227,
+    "hash": "d59593c8fb0687bc4cafd9cbe4e3bc75"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\primitives\\extract.test.ts": {
+    "mtime": 1781590313.9725864,
+    "hash": "0aff72108879aa429ac56d9776d98fce"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\primitives\\hitl.test.ts": {
+    "mtime": 1781591509.2444422,
+    "hash": "a7def049f8471134dd52115c07b7e13b"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\primitives\\ingest.test.ts": {
+    "mtime": 1780065605.648389,
+    "hash": "a600fbaf2b017e3124b8451ec22b51f7"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\primitives\\lookup.test.ts": {
+    "mtime": 1781590484.2975216,
+    "hash": "66b69fa29dafcf1e4a4f225729326f55"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\primitives\\reason.test.ts": {
+    "mtime": 1781590976.4578252,
+    "hash": "6c8ac6a72abece809b3dd7b0e4d537a5"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\primitives\\trace.test.ts": {
+    "mtime": 1780065605.2177272,
+    "hash": "43252ac02a2b1e1c91666bac4c3b3c7e"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\primitives\\validate.test.ts": {
+    "mtime": 1781591365.9095318,
+    "hash": "4e68ac29ec0ec67a9c50526e9f2c3b7d"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\rules-pack\\context.test.ts": {
+    "mtime": 1781588575.8786316,
+    "hash": "994d597f2ba3bd67d466ad78c1850573"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\rules-pack\\loader.test.ts": {
+    "mtime": 1780065605.4719102,
+    "hash": "4b0399129c52837184bbb6a51d973d74"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\rules-pack\\lookups.test.ts": {
+    "mtime": 1781589851.7363894,
+    "hash": "8d8f9e11da1bbe789309e99b064ae355"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\rules-pack\\prompts.test.ts": {
+    "mtime": 1781589576.33301,
+    "hash": "d9e9ede5340a949fd2c8b21970b5c959"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\rules-pack\\schema.test.ts": {
+    "mtime": 1780065605.919664,
+    "hash": "44585160f9fbedc4320e013b1783ea3d"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\rules-pack\\schemas.test.ts": {
+    "mtime": 1781589699.2963731,
+    "hash": "a2f61d748a8b4e569f8ca77ec1a36941"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\rules-pack\\version.test.ts": {
+    "mtime": 1780065605.3681738,
+    "hash": "e5e1124ae2351aaf03a843521856fa43"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\storage\\entities.test.ts": {
+    "mtime": 1780265859.5137157,
+    "hash": "091233c3ab08772169621a8644f3b239"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\workflow\\dsl.test.ts": {
+    "mtime": 1780065605.5311556,
+    "hash": "fc69ea86ce9ef4fb4e75a2ba66ff227c"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\workflow\\runtime.test.ts": {
+    "mtime": 1780265655.839826,
+    "hash": "0e3a33721aeb8725aa2e6e47ad3266d2"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\workflows\\gpsr-epr.workflow.test.ts": {
+    "mtime": 1781593138.2244108,
+    "hash": "afca3fb4ab1d4b83f814d73f1e09081e"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\test-setup.ts": {
+    "mtime": 1777463808.5674968,
+    "hash": "dc972af1d2b80e79814a7e1999178b15"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\app\\layout.tsx": {
+    "mtime": 1777525495.874668,
+    "hash": "7c0a1d4c248d141bcd4f9be7b904b3ad"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\app\\page.tsx": {
+    "mtime": 1777463808.5334277,
+    "hash": "33ed664f5cbd2dc30b1d9e035e990bc0"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\app\\api\\app-state\\route.ts": {
+    "mtime": 1777463808.5245187,
+    "hash": "2a9651bc32e1249ded9d32ef48f69f8c"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\app\\api\\chat\\route.ts": {
+    "mtime": 1777958708.983884,
+    "hash": "cc5bf1ecbe70d6f30d0619b8a420fb2e"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\app\\api\\documents\\route.ts": {
+    "mtime": 1777958708.8346045,
+    "hash": "726fa7c416b2f8df5090d1d11acaa54e"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\app\\api\\documents\\summarize\\route.ts": {
+    "mtime": 1777958708.7653618,
+    "hash": "4203e59b345ac38891a51f0311169988"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\app\\api\\documents\\upload\\route.ts": {
+    "mtime": 1777958708.9097576,
+    "hash": "aa4896f201e45d76be20d54829816c51"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\app\\api\\generate\\route.ts": {
+    "mtime": 1777958709.0497649,
+    "hash": "f5dc5e60ecabe4a633f2b6096a64feaf"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\dashboard\\Dashboard.tsx": {
+    "mtime": 1777463808.5349712,
+    "hash": "48ae1a7c0bc2e0a364a3fe414e6222de"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\dashboard\\DocCard.tsx": {
+    "mtime": 1777525495.8766654,
+    "hash": "8d6b28840b334747c9b9d1ce0f96a828"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\dashboard\\UploadZone.tsx": {
+    "mtime": 1777463808.5375502,
+    "hash": "7b1bb1dc30b21d75e9aa8ef338d92ad6"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\dashboard\\WorkspaceRail.tsx": {
+    "mtime": 1777525495.878171,
+    "hash": "01911d807ac0975a753530752b493751"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\layout\\Sidebar.tsx": {
+    "mtime": 1777463808.5400622,
+    "hash": "a9961c391e3dbc3303c6fcc7005d05ca"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\mode\\ModeSwitcher.tsx": {
+    "mtime": 1777463808.541593,
+    "hash": "a9aa5fa1eb0f8ad0e6e6bbafdf791589"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\onboarding\\ModeSelect.tsx": {
+    "mtime": 1777463808.5427473,
+    "hash": "abe03a4fafa5a4d62ad047cf6f76a722"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\ui\\icons.tsx": {
+    "mtime": 1777463808.5433588,
+    "hash": "e962ff78f2089641d1ef70f13fe7e150"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\ui\\primitives.tsx": {
+    "mtime": 1777463808.5448883,
+    "hash": "2e38ea3b76f98f256f020574cf5f7b3b"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\workspace\\AIPanel.tsx": {
+    "mtime": 1777958701.4422562,
+    "hash": "a18d5492170118fc8da81516e9dad5e6"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\workspace\\BezierBeam.tsx": {
+    "mtime": 1777958701.264017,
+    "hash": "7da2fc3a8e41a73cb06fd21a1c5f6bef"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\workspace\\ChatTab.tsx": {
+    "mtime": 1778004740.388456,
+    "hash": "6d5850bfac36f550595d1c31363523d1"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\workspace\\DocListPanel.tsx": {
+    "mtime": 1777958701.3509061,
+    "hash": "5fb01c2cd4f324f5cf849d9768a49064"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\workspace\\GenerateTab.tsx": {
+    "mtime": 1777958701.5703416,
+    "hash": "3846112f29fe110843ce7d084a9144a3"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\workspace\\PdfViewer.tsx": {
+    "mtime": 1777958701.3979554,
+    "hash": "9694d123f19b7d00bf6b43c8bed75077"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\workspace\\SummaryTab.tsx": {
+    "mtime": 1777958701.529732,
+    "hash": "635df8be26238c981a90539320013666"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\components\\workspace\\Workspace.tsx": {
+    "mtime": 1777958701.3090143,
+    "hash": "c3b1d2600d643beb63c4d58100ff0a09"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\hooks\\useAppState.ts": {
+    "mtime": 1777463808.5537066,
+    "hash": "93bc136cfc1b44e4061b53298dda78da"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\hooks\\useDocuments.ts": {
+    "mtime": 1777525496.116225,
+    "hash": "ba5921c2136ea048dda347e00f0f542e"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\lib\\data.ts": {
+    "mtime": 1777525495.8954532,
+    "hash": "88f205b118b3055dc84ef7aaef2e9208"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\lib\\extractor.ts": {
+    "mtime": 1777525495.898133,
+    "hash": "b70f9e73b43e5c60081d9be25d266adc"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\lib\\groq.ts": {
+    "mtime": 1777958701.218011,
+    "hash": "74e7387c2e216b28f5d4f97daacfd51d"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\lib\\local-store.ts": {
+    "mtime": 1777463808.5612178,
+    "hash": "81c073d53cd622694de29f49f9e49abd"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\lib\\modes.ts": {
+    "mtime": 1777463808.5630465,
+    "hash": "e4c72f62b77011b5841f02ad035cac85"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\lib\\rag.ts": {
+    "mtime": 1777463808.5650828,
+    "hash": "d073fed05a4414b28d9c87c572758a48"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\lib\\session-cache.ts": {
+    "mtime": 1777958701.1743417,
+    "hash": "d4d1143c760c75aeaedbb4b09f3cfe40"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\lib\\supabase-server.ts": {
+    "mtime": 1777525495.9002619,
+    "hash": "1effb523d187039a4b7ac7d50a63e26b"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\lib\\supabase.ts": {
+    "mtime": 1777525496.1193318,
+    "hash": "871c2370bbb3e2c816bbd611d59f5ce1"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\lib\\__tests__\\extractor.test.ts": {
+    "mtime": 1777463808.5567908,
+    "hash": "312574eb01d55b3a2c42528bfdf4ea75"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\src\\lib\\__tests__\\modes.test.ts": {
+    "mtime": 1777463808.5577857,
+    "hash": "d83fe55bde12d011c83f37d1b39b9c1e"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\supabase\\migrations\\001_initial_schema.sql": {
+    "mtime": 1777463808.5690174,
+    "hash": "959c3906f8d9d81727813df4850ed83c"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\supabase\\migrations\\002_engine_schema.sql": {
+    "mtime": 1780065605.1676464,
+    "hash": "74f1e260141878c1183e614082127c97"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\AGENTS.md": {
+    "mtime": 1777958685.6596677,
+    "hash": "c8fdbcb44d69c339e4a807bb04103b27"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\CLAUDE.md": {
+    "mtime": 1780040492.620082,
+    "hash": "c2fef829faad43648be630b46b03e7f3"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\README.md": {
+    "mtime": 1777463808.4920368,
+    "hash": "9162add00befbcdb432430f405c4ad8d"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\docs\\implementation_plan.md": {
+    "mtime": 1777476139.9001057,
+    "hash": "e4b4408e790499291483c315f297e92e"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\docs\\walkthrough.md": {
+    "mtime": 1777476926.9742098,
+    "hash": "e7dcc577e344dac34b65ebceda3fd39a"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\docs\\superpowers\\plans\\2026-04-25-docmind-mvp.md": {
+    "mtime": 1777463808.495083,
+    "hash": "18929cb8d6429052e67e31f5c390c9d7"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\docs\\superpowers\\plans\\2026-05-28-engine-skeleton.md": {
+    "mtime": 1780065604.7871282,
+    "hash": "88ac56da297d57bae9be9b367d0c265d"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\docs\\superpowers\\plans\\2026-05-29-phase2-gpsr-epr-de.md": {
+    "mtime": 1780205887.5676682,
+    "hash": "c49a4c9926d24b977959ddc6a30417d1"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\docs\\superpowers\\specs\\2026-04-25-docmind-design.md": {
+    "mtime": 1777463808.4973214,
+    "hash": "21dcf275c3f9cc3ba65f72cce2c05556"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\docs\\superpowers\\specs\\2026-05-29-phase2-gpsr-epr-de-design.md": {
+    "mtime": 1780205289.6376784,
+    "hash": "c4d1ce6e7a5ada2c0cf90843ed51fad1"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\engine\\__tests__\\fixtures\\usb-charger-spec.txt": {
+    "mtime": 1781594188.5671165,
+    "hash": "fe7ebd0d8609ad1e1f28b1418a608a96"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\rules-packs\\eu-gpsr-epr\\2026.05.0\\hitl-policy.yaml": {
+    "mtime": 1780266050.970853,
+    "hash": "7e3120fb953a113e3f934369cf99068d"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\rules-packs\\eu-gpsr-epr\\2026.05.0\\rules\\eligibility.yaml": {
+    "mtime": 1781589110.7381792,
+    "hash": "ae3de65e152df49bd24d1a0cee2d34b1"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\rules-packs\\eu-gpsr-epr\\2026.05.0\\rules\\high-risk.yaml": {
+    "mtime": 1781589113.460763,
+    "hash": "868865f27d88ef8bc917468cd4a5c8a8"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\rules-packs\\eu-gpsr-epr\\2026.05.0\\rules\\prompts\\classify.product-category.md": {
+    "mtime": 1781589247.4190452,
+    "hash": "7cf5dccb0659d19f5377b0437147fd57"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\rules-packs\\eu-gpsr-epr\\2026.05.0\\rules\\prompts\\draft.epr-de-packaging.md": {
+    "mtime": 1781589260.113233,
+    "hash": "7be9299eb061d46b8444b1f9c52c892c"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\rules-packs\\eu-gpsr-epr\\2026.05.0\\rules\\prompts\\draft.epr-de-weee.md": {
+    "mtime": 1781589255.9970486,
+    "hash": "3e63e99cafc5c49382ec3876b763b958"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\rules-packs\\eu-gpsr-epr\\2026.05.0\\rules\\prompts\\draft.gpsr-article9.md": {
+    "mtime": 1781589263.3413374,
+    "hash": "7727437d7c2e807f24aeabeb62a5f611"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\rules-packs\\eu-gpsr-epr\\2026.05.0\\rules\\prompts\\extract.product-catalog.md": {
+    "mtime": 1781589251.3171117,
+    "hash": "ace2122a23a0f894a7dd114df250635d"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\rules-packs\\noop\\1.0.0\\hitl-policy.yaml": {
+    "mtime": 1780065605.4751077,
+    "hash": "8d654f26ab67532318a3c12e17fdb9e9"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\public\\uploads\\1777177111186-3DP-UNIT-3.pdf": {
+    "mtime": 1777463808.519979,
+    "hash": "52da3342eba3f18ef9189c7462e91066"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\public\\uploads\\1777525545180-SubGEN_AI_Final_Report_Updated.pdf": {
+    "mtime": 1777525545.1858516,
+    "hash": "2b863cb5203e9fb669daa3c98f2aa7cc"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\public\\file.svg": {
+    "mtime": 1777463808.5074828,
+    "hash": "d09f95206c3fa0bb9bd9fefabfd0ea71"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\public\\globe.svg": {
+    "mtime": 1777463808.5090847,
+    "hash": "2aaafa6a49b6563925fe440891e32717"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\public\\next.svg": {
+    "mtime": 1777463808.5090847,
+    "hash": "8e061864f388b47f33a1c3780831193e"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\public\\vercel.svg": {
+    "mtime": 1777463808.5209825,
+    "hash": "c0af2f507b369b085b35ef4bbe3bcf1e"
+  },
+  "C:\\Users\\acer\\Documents\\projects\\Docmind-app\\public\\window.svg": {
+    "mtime": 1777463808.5219853,
+    "hash": "a2760511c65806022ad20adf74370ff3"
+  }
+}
