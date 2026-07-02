@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { DocListPanel } from './DocListPanel'
 import { AIPanel } from './AIPanel'
 import { BezierBeam } from './BezierBeam'
@@ -19,15 +19,18 @@ interface WorkspaceProps {
 
 export function Workspace({ initialDocId }: WorkspaceProps) {
   const { documents, refetch } = useDocuments()
+  const [prevInitialDocId, setPrevInitialDocId] = useState(initialDocId);
   const [activeId, setActiveId] = useState<string | null>(initialDocId)
   const [targetPage, setTargetPage] = useState<number | null>(null)
   const [beamFrom, setBeamFrom] = useState<{ x: number; y: number } | null>(null)
   const [beamTo, setBeamTo] = useState<{ x: number; y: number } | null>(null)
 
-  // Sync when parent changes the initialDocId (e.g. sidebar click while already in workspace)
-  useEffect(() => {
-    if (initialDocId !== null) setActiveId(initialDocId)
-  }, [initialDocId])
+  if (initialDocId !== prevInitialDocId) {
+    setPrevInitialDocId(initialDocId);
+    if (initialDocId !== null) {
+      setActiveId(initialDocId);
+    }
+  }
 
   const activeDoc = documents.find(d => d.id === activeId) || null
 
@@ -51,7 +54,7 @@ export function Workspace({ initialDocId }: WorkspaceProps) {
                 </div>
               )}
               <div className="flex-1 overflow-y-auto relative flex flex-col">
-                {/* @ts-ignore */}
+                {/* @ts-expect-error - dynamic component typing */}
                 <PdfViewer
                   url={activeDoc.storage_path.startsWith('/') ? activeDoc.storage_path : `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/documents/${activeDoc.storage_path}`}
                   targetPage={targetPage ?? undefined}

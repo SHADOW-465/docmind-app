@@ -73,8 +73,16 @@ export default function SummaryTab({ doc, setTab, onRefetch, onPageRef }: { doc:
     { id: 'risks',      icon: 'Bolt',   title: 'Risks & Red Flags', accent: '#b54a3a', items: normalizeItems((doc.summary_json.risks     as unknown[]) || []) },
   ] : [];
 
-  const [open, setOpen] = useState<string[]>([]);
-  React.useEffect(() => { setOpen(sections.map(s => s.id)); }, [doc.id, !!doc.summary_json]);
+  const [prevDocId, setPrevDocId] = useState(doc.id);
+  const [prevHasSummary, setPrevHasSummary] = useState(!!doc.summary_json);
+  const [open, setOpen] = useState<string[]>(sections.map(s => s.id));
+
+  const hasSummary = !!doc.summary_json;
+  if (doc.id !== prevDocId || hasSummary !== prevHasSummary) {
+    setPrevDocId(doc.id);
+    setPrevHasSummary(hasSummary);
+    setOpen(sections.map(s => s.id));
+  }
   const toggle = (id: string) => setOpen(o => o.includes(id) ? o.filter(x => x !== id) : [...o, id]);
   const allOpen = open.length === sections.length && sections.length > 0;
 

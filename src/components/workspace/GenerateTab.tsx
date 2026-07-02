@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { I } from '@/components/ui/icons';
 import { Btn, Segmented, Card, Tooltip } from '@/components/ui/primitives';
 import { useCompletion } from '@ai-sdk/react';
@@ -47,8 +47,12 @@ export default function GenerateTab({ doc }: { doc: Document }) {
     onError: (err) => console.error('Generate error:', err),
   });
 
-  // Reset when doc changes (AIPanel keys this component, but guard here too)
-  useEffect(() => { setSelected(null); setCompletion(''); }, [doc.id, setCompletion]);
+  const [prevDocId, setPrevDocId] = useState(doc.id);
+  if (doc.id !== prevDocId) {
+    setPrevDocId(doc.id);
+    setSelected(null);
+    setCompletion('');
+  }
 
   const run = () => {
     if (!selected) return;

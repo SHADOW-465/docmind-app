@@ -30,7 +30,7 @@ export async function summarizeDocument(
       model: groq(MODEL),
       system: buildSummaryPrompt(mode),
       prompt: truncated,
-      // @ts-ignore
+      // @ts-expect-error - groq extra param
       maxTokens: 2000,
     })
     const jsonMatch = raw.match(/\{[\s\S]*\}/)
@@ -53,7 +53,7 @@ export async function suggestActions(
       model: groq(MODEL),
       system: buildActionsPrompt(mode, filename),
       prompt: truncated,
-      // @ts-ignore
+      // @ts-expect-error - groq extra param
       maxTokens: 600,
     })
     const jsonMatch = raw.match(/\{[\s\S]*\}/)
