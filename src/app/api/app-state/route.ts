@@ -3,7 +3,10 @@ import { createServerClient } from '@/lib/supabase-server'
 import fs from 'fs'
 import path from 'path'
 
-const LOCAL_STATE_FILE = path.join(process.cwd(), '.local-app-state.json')
+const LOCAL_STATE_FILE = path.join(
+  process.env.VERCEL || process.env.AWS_EXECUTION_ENV || process.env.LAMBDA_TASK_ROOT ? '/tmp' : process.cwd(),
+  '.local-app-state.json'
+)
 
 const DEFAULT_STATE = {
   id: 1,

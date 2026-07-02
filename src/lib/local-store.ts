@@ -2,7 +2,10 @@ import fs from 'fs'
 import path from 'path'
 import { randomUUID } from 'crypto'
 
-const DOCS_FILE = path.join(process.cwd(), '.local-documents.json')
+const DOCS_FILE = path.join(
+  process.env.VERCEL || process.env.AWS_EXECUTION_ENV || process.env.LAMBDA_TASK_ROOT ? '/tmp' : process.cwd(),
+  '.local-documents.json'
+)
 
 export interface LocalDocument {
   id: string

@@ -64,7 +64,11 @@ export async function POST(req: Request) {
 
   if (!isSupabaseConfigured()) {
     // Save file to public/uploads so it can be served statically
-    const uploadsDir = path.join(process.cwd(), 'public', 'uploads')
+    const uploadsDir = path.join(
+      process.env.VERCEL || process.env.AWS_EXECUTION_ENV || process.env.LAMBDA_TASK_ROOT ? '/tmp' : process.cwd(),
+      'public',
+      'uploads'
+    )
     if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true })
     const filename = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9._-]/g, '_')}`
     fs.writeFileSync(path.join(uploadsDir, filename), buffer)
