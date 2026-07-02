@@ -54,7 +54,6 @@ export function Workspace({ initialDocId }: WorkspaceProps) {
                 </div>
               )}
               <div className="flex-1 overflow-y-auto relative flex flex-col">
-                {/* @ts-expect-error - dynamic component typing */}
                 <PdfViewer
                   url={activeDoc.storage_path.startsWith('/') ? activeDoc.storage_path : `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/documents/${activeDoc.storage_path}`}
                   targetPage={targetPage ?? undefined}
