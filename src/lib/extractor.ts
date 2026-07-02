@@ -38,8 +38,18 @@ export async function extractFromBuffer(
     default:      return extractPlainText(buffer)
   }
 }
-
 async function extractPdf(buffer: Buffer): Promise<ExtractionResult> {
+  if (typeof global !== 'undefined') {
+    if (!('DOMMatrix' in global)) {
+      (global as any).DOMMatrix = class DOMMatrix {};
+    }
+    if (!('ImageData' in global)) {
+      (global as any).ImageData = class ImageData {};
+    }
+    if (!('Path2D' in global)) {
+      (global as any).Path2D = class Path2D {};
+    }
+  }
   const { getDocument } = await import('pdfjs-dist/legacy/build/pdf.mjs' as string)
   const uint8 = new Uint8Array(buffer)
   const pdf = await getDocument({ data: uint8 }).promise
