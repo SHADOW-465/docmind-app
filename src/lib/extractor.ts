@@ -40,14 +40,15 @@ export async function extractFromBuffer(
 }
 async function extractPdf(buffer: Buffer): Promise<ExtractionResult> {
   if (typeof global !== 'undefined') {
+    const globalObj = global as unknown as Record<string, unknown>;
     if (!('DOMMatrix' in global)) {
-      (global as any).DOMMatrix = class DOMMatrix {};
+      globalObj.DOMMatrix = class DOMMatrix {};
     }
     if (!('ImageData' in global)) {
-      (global as any).ImageData = class ImageData {};
+      globalObj.ImageData = class ImageData {};
     }
     if (!('Path2D' in global)) {
-      (global as any).Path2D = class Path2D {};
+      globalObj.Path2D = class Path2D {};
     }
   }
   const { getDocument } = await import('pdfjs-dist/legacy/build/pdf.mjs' as string)
