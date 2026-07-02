@@ -28,7 +28,13 @@ function readLocalState() {
 }
 
 function writeLocalState(state: typeof DEFAULT_STATE) {
-  fs.writeFileSync(LOCAL_STATE_FILE, JSON.stringify(state, null, 2), 'utf-8')
+  try {
+    fs.writeFileSync(LOCAL_STATE_FILE, JSON.stringify(state, null, 2), 'utf-8')
+  } catch (err) {
+    // Read-only filesystem (e.g. deployed to Vercel without Supabase env vars
+    // configured). Degrade to in-memory state for this request instead of 500ing.
+    console.warn('app-state: local state file is not writable, falling back to in-memory state', err)
+  }
   return state
 }
 
