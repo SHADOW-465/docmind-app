@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { createServerClient } from '@/lib/supabase-server'
+import { createServerClient, isSupabaseConfigured } from '@/lib/supabase-server'
 import fs from 'fs'
 import path from 'path'
 
@@ -14,11 +14,6 @@ const DEFAULT_STATE = {
   onboarding_done: false,
   theme: 'light',
   sidebar_collapsed: false,
-}
-
-function isSupabaseConfigured() {
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
-  return key.length > 0 && !key.startsWith('PASTE_YOUR')
 }
 
 function readLocalState() {
