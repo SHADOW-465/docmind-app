@@ -6,6 +6,13 @@ const nextConfig: NextConfig = {
   // The legacy build is used only in API routes (server-side Node.js).
   serverExternalPackages: ['pdfjs-dist'],
 
+  // pdfjs loads its worker via a computed dynamic import, so output file
+  // tracing misses it and Vercel's bundle lacks pdf.worker.mjs → 500 on
+  // every PDF upload. Include the whole legacy build explicitly.
+  outputFileTracingIncludes: {
+    '/api/documents/upload': ['./node_modules/pdfjs-dist/legacy/build/**'],
+  },
+
   // Turbopack (default in Next.js 16) resolveAlias equivalent
   turbopack: {
     resolveAlias: {
